@@ -300,7 +300,88 @@
       
         
           
-            <h2 id="新增任务：测试竖屏裸眼3D效果-2018-6-21-星期四-18-37-41"><a href="#新增任务：测试竖屏裸眼3D效果-2018-6-21-星期四-18-37-41" class="headerlink" title="新增任务：测试竖屏裸眼3D效果. 2018/6/21 星期四 18:37:41"></a>新增任务：测试竖屏裸眼3D效果. 2018/6/21 星期四 18:37:41</h2><ul>
+            <h2 id="继续测试竖屏3D效果-2018-6-22-星期五-10-59-29"><a href="#继续测试竖屏3D效果-2018-6-22-星期五-10-59-29" class="headerlink" title="继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29"></a>继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29</h2><p>Ⅰ.修改app的activity的方向后，继续测试。并只需测试2160x3840，竖视频的横竖各配置的效果：  </p>
+<ol>
+<li>竖配置：  </li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>竖配置</th>
+<th style="text-align:center">显示方向</th>
+<th style="text-align:right">是否3D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无screen_orientation</td>
+<td style="text-align:center">横全屏</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>protrait</td>
+<td style="text-align:center">横全屏</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>landscape</td>
+<td style="text-align:center">横全屏</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>sensor_protrait</td>
+<td style="text-align:center">横全屏</td>
+<td style="text-align:right">是</td>
+</tr>
+<tr>
+<td>sensor_landscape</td>
+<td style="text-align:center">横全屏</td>
+<td style="text-align:right">是</td>
+</tr>
+</tbody>
+</table>
+<p>2.横配置：</p>
+<table>
+<thead>
+<tr>
+<th>横配置</th>
+<th style="text-align:center">显示方向</th>
+<th style="text-align:right">是否3D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无screen_orientation</td>
+<td style="text-align:center">竖全屏</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>protrait</td>
+<td style="text-align:center">竖全屏</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>landscape</td>
+<td style="text-align:center">竖全屏</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>sensor_protrait</td>
+<td style="text-align:center">竖全屏</td>
+<td style="text-align:right">否</td>
+</tr>
+<tr>
+<td>sensor_landscape</td>
+<td style="text-align:center">竖全屏</td>
+<td style="text-align:right">否</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>结论：需要横配置，但是横配置无3D效果。视频方向保留横配置方向，effect改成竖effect，继续测试。[如果有效果，说明是横配置的算法有问题]</li>
+</ul>
+<hr>
+<h2 id="新增任务：测试竖屏裸眼3D效果-2018-6-21-星期四-18-37-41"><a href="#新增任务：测试竖屏裸眼3D效果-2018-6-21-星期四-18-37-41" class="headerlink" title="新增任务：测试竖屏裸眼3D效果. 2018/6/21 星期四 18:37:41"></a>新增任务：测试竖屏裸眼3D效果. 2018/6/21 星期四 18:37:41</h2><ul>
 <li>新问题：裸眼3D竖屏，参数配置确定，不显示3D效果。</li>
 <li>测试配置参数跟视频横竖屏，对显示结果的影响：    </li>
 </ul>
@@ -390,7 +471,10 @@
 </tr>
 </tbody>
 </table>
-<p>结果：要配置</p>
+<ul>
+<li>结果：① 竖视频，竖配置有3D效果。 ② 竖视频，横配置能显示竖全屏。</li>
+<li>结论：修改app的activity的方向，继续进行测试。</li>
+</ul>
 <hr>
 <h2 id="目前还剩下的主要任务：2018-6-20-星期三-11-16-01"><a href="#目前还剩下的主要任务：2018-6-20-星期三-11-16-01" class="headerlink" title="目前还剩下的主要任务：2018/6/20 星期三 11:16:01"></a>目前还剩下的主要任务：2018/6/20 星期三 11:16:01</h2><ul>
 <li>开发播放器bitmap效果。</li>
