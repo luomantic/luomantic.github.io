@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29Ⅰ.修改app的activity的方向后，继续测试。并只需测试2160x3840，竖视频的横竖各配置的效果：    竖配置：       竖配置 显示方向 是否3D     无screen_orientation 横全屏 是   protrait 横全屏 是   landscape 横全屏 是   sensor_protrait">
+<meta name="description" content="上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018/6/25 星期一 10:30:45屏幕分辨率：1920x1080  =  宽 x 高 【横向视频，横向屏幕】测试用smt-3399: 1920x1080 横屏能读取到配置，竖屏读取不到配置。(突然又能读取到配置了？？卧槽) isHOZScreen = true: 能读取裸眼3D配置，显示横向［逆时钟９０°］。 isHOZScre">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
 <meta property="og:title" content="工作进度">
 <meta property="og:url" content="http://yoursite.com/2018/06/20/工作进度/index.html">
 <meta property="og:site_name" content="luomantic">
-<meta property="og:description" content="继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29Ⅰ.修改app的activity的方向后，继续测试。并只需测试2160x3840，竖视频的横竖各配置的效果：    竖配置：       竖配置 显示方向 是否3D     无screen_orientation 横全屏 是   protrait 横全屏 是   landscape 横全屏 是   sensor_protrait">
+<meta property="og:description" content="上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018/6/25 星期一 10:30:45屏幕分辨率：1920x1080  =  宽 x 高 【横向视频，横向屏幕】测试用smt-3399: 1920x1080 横屏能读取到配置，竖屏读取不到配置。(突然又能读取到配置了？？卧槽) isHOZScreen = true: 能读取裸眼3D配置，显示横向［逆时钟９０°］。 isHOZScre">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-22T03:10:09.620Z">
+<meta property="og:updated_time" content="2018-06-25T02:30:47.824Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="工作进度">
-<meta name="twitter:description" content="继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29Ⅰ.修改app的activity的方向后，继续测试。并只需测试2160x3840，竖视频的横竖各配置的效果：    竖配置：       竖配置 显示方向 是否3D     无screen_orientation 横全屏 是   protrait 横全屏 是   landscape 横全屏 是   sensor_protrait">
+<meta name="twitter:description" content="上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018/6/25 星期一 10:30:45屏幕分辨率：1920x1080  =  宽 x 高 【横向视频，横向屏幕】测试用smt-3399: 1920x1080 横屏能读取到配置，竖屏读取不到配置。(突然又能读取到配置了？？卧槽) isHOZScreen = true: 能读取裸眼3D配置，显示横向［逆时钟９０°］。 isHOZScre">
 
 
 
@@ -300,7 +300,21 @@
       
 
       
-        <h2 id="继续测试竖屏3D效果-2018-6-22-星期五-10-59-29"><a href="#继续测试竖屏3D效果-2018-6-22-星期五-10-59-29" class="headerlink" title="继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29"></a>继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29</h2><p>Ⅰ.修改app的activity的方向后，继续测试。并只需测试2160x3840，竖视频的横竖各配置的效果：  </p>
+        <h2 id="上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018-6-25-星期一-10-30-45"><a href="#上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018-6-25-星期一-10-30-45" class="headerlink" title="上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018/6/25 星期一 10:30:45"></a>上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018/6/25 星期一 10:30:45</h2><h3 id="屏幕分辨率：1920x1080-宽-x-高-【横向视频，横向屏幕】"><a href="#屏幕分辨率：1920x1080-宽-x-高-【横向视频，横向屏幕】" class="headerlink" title="屏幕分辨率：1920x1080  =  宽 x 高 【横向视频，横向屏幕】"></a>屏幕分辨率：1920x1080  =  宽 x 高 【横向视频，横向屏幕】</h3><h3 id="测试用smt-3399-1920x1080"><a href="#测试用smt-3399-1920x1080" class="headerlink" title="测试用smt-3399: 1920x1080"></a>测试用smt-3399: 1920x1080</h3><ul>
+<li>横屏能读取到配置，竖屏读取不到配置。(突然又能读取到配置了？？卧槽)</li>
+<li>isHOZScreen = true: 能读取裸眼3D配置，显示横向［逆时钟９０°］。</li>
+<li>isHOZScreen = false: 能读取裸眼3D配置，显示竖屏裸眼3D。</li>
+</ul>
+<h3 id="测试用smt-3399：1080x1920"><a href="#测试用smt-3399：1080x1920" class="headerlink" title="测试用smt-3399：1080x1920"></a>测试用smt-3399：1080x1920</h3><ul>
+<li>横屏，竖屏，都能读取到配置文件：</li>
+<li>isHOZScreen = true: 能读取裸眼3D配置，显示横向［逆时钟９０°］。</li>
+<li>isHoZScreen = false：能读取裸眼3D配置，显示竖向裸眼3D。</li>
+</ul>
+<ul>
+<li>跟分辨率无关，只跟视频方向和pwd配置文件方向有关。</li>
+</ul>
+<hr>
+<h2 id="继续测试竖屏3D效果-2018-6-22-星期五-10-59-29"><a href="#继续测试竖屏3D效果-2018-6-22-星期五-10-59-29" class="headerlink" title="继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29"></a>继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29</h2><p>Ⅰ.修改app的activity的方向后，继续测试。并只需测试2160x3840，竖视频的横竖各配置的效果：  </p>
 <ol>
 <li>竖配置：  </li>
 </ol>
@@ -687,7 +701,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#继续测试竖屏3D效果-2018-6-22-星期五-10-59-29"><span class="nav-number">1.</span> <span class="nav-text">继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增任务：测试竖屏裸眼3D效果-2018-6-21-星期四-18-37-41"><span class="nav-number">2.</span> <span class="nav-text">新增任务：测试竖屏裸眼3D效果. 2018/6/21 星期四 18:37:41</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目前还剩下的主要任务：2018-6-20-星期三-11-16-01"><span class="nav-number">3.</span> <span class="nav-text">目前还剩下的主要任务：2018/6/20 星期三 11:16:01</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待完成事项：-2018-6-15-星期五-12-15-31"><span class="nav-number">4.</span> <span class="nav-text">待完成事项：[2018/6/15 星期五 12:15:31 ]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#smt存在的一些问题：-未完成：需跟视美泰沟通"><span class="nav-number">4.1.</span> <span class="nav-text">smt存在的一些问题： [未完成：需跟视美泰沟通] </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单机版播放器的说明：-已完成：需要刷固件"><span class="nav-number">4.2.</span> <span class="nav-text">单机版播放器的说明： [已完成：需要刷固件] </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待完成事项：-2018-6-14-星期四-16-08-10"><span class="nav-number">5.</span> <span class="nav-text">待完成事项：[2018/6/14 星期四 16:08:10 ]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要放视美泰板子上，进行测试的东西：-已完成"><span class="nav-number">5.1.</span> <span class="nav-text">需要放视美泰板子上，进行测试的东西：[已完成]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他备注：-已完成，选用看云"><span class="nav-number">5.2.</span> <span class="nav-text">其他备注：[已完成，选用看云]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-以下软件，需要规格书跟使用说明书：-未完成：需要时间，重要但不紧急"><span class="nav-number">5.3.</span> <span class="nav-text">1. 以下软件，需要规格书跟使用说明书：  [未完成：需要时间，重要但不紧急] </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-视美泰需要修改的部分：-需要跟视美泰沟通"><span class="nav-number">5.4.</span> <span class="nav-text">2. 视美泰需要修改的部分： [需要跟视美泰沟通] </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3D播放器需要修改的部分：-已完成"><span class="nav-number">5.5.</span> <span class="nav-text">3. 3D播放器需要修改的部分： [已完成]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-视美泰player集成到3D播放器中。-已完成"><span class="nav-number">5.6.</span> <span class="nav-text">4. 视美泰player集成到3D播放器中。[已完成]</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018-6-25-星期一-10-30-45"><span class="nav-number">1.</span> <span class="nav-text">上周六发现的问题：读取不到配置文件，报空指针异常。继续测试：2018/6/25 星期一 10:30:45</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#屏幕分辨率：1920x1080-宽-x-高-【横向视频，横向屏幕】"><span class="nav-number">1.1.</span> <span class="nav-text">屏幕分辨率：1920x1080  =  宽 x 高 【横向视频，横向屏幕】</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用smt-3399-1920x1080"><span class="nav-number">1.2.</span> <span class="nav-text">测试用smt-3399: 1920x1080</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用smt-3399：1080x1920"><span class="nav-number">1.3.</span> <span class="nav-text">测试用smt-3399：1080x1920</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继续测试竖屏3D效果-2018-6-22-星期五-10-59-29"><span class="nav-number">2.</span> <span class="nav-text">继续测试竖屏3D效果. 2018/6/22 星期五 10:59:29</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新增任务：测试竖屏裸眼3D效果-2018-6-21-星期四-18-37-41"><span class="nav-number">3.</span> <span class="nav-text">新增任务：测试竖屏裸眼3D效果. 2018/6/21 星期四 18:37:41</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目前还剩下的主要任务：2018-6-20-星期三-11-16-01"><span class="nav-number">4.</span> <span class="nav-text">目前还剩下的主要任务：2018/6/20 星期三 11:16:01</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待完成事项：-2018-6-15-星期五-12-15-31"><span class="nav-number">5.</span> <span class="nav-text">待完成事项：[2018/6/15 星期五 12:15:31 ]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#smt存在的一些问题：-未完成：需跟视美泰沟通"><span class="nav-number">5.1.</span> <span class="nav-text">smt存在的一些问题： [未完成：需跟视美泰沟通] </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单机版播放器的说明：-已完成：需要刷固件"><span class="nav-number">5.2.</span> <span class="nav-text">单机版播放器的说明： [已完成：需要刷固件] </span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#待完成事项：-2018-6-14-星期四-16-08-10"><span class="nav-number">6.</span> <span class="nav-text">待完成事项：[2018/6/14 星期四 16:08:10 ]</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#需要放视美泰板子上，进行测试的东西：-已完成"><span class="nav-number">6.1.</span> <span class="nav-text">需要放视美泰板子上，进行测试的东西：[已完成]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他备注：-已完成，选用看云"><span class="nav-number">6.2.</span> <span class="nav-text">其他备注：[已完成，选用看云]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-以下软件，需要规格书跟使用说明书：-未完成：需要时间，重要但不紧急"><span class="nav-number">6.3.</span> <span class="nav-text">1. 以下软件，需要规格书跟使用说明书：  [未完成：需要时间，重要但不紧急] </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-视美泰需要修改的部分：-需要跟视美泰沟通"><span class="nav-number">6.4.</span> <span class="nav-text">2. 视美泰需要修改的部分： [需要跟视美泰沟通] </span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-3D播放器需要修改的部分：-已完成"><span class="nav-number">6.5.</span> <span class="nav-text">3. 3D播放器需要修改的部分： [已完成]</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-视美泰player集成到3D播放器中。-已完成"><span class="nav-number">6.6.</span> <span class="nav-text">4. 视美泰player集成到3D播放器中。[已完成]</span></a></li></ol></li></ol></div>
             
 
           </div>
