@@ -229,6 +229,272 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/JNI_笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="luomantic">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="luomantic">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/03/JNI_笔记/" itemprop="url">JNI笔记：</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-03T15:49:26+08:00">
+                2018-07-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="C基本语法"><a href="#C基本语法" class="headerlink" title="C基本语法"></a>C基本语法</h2><ul>
+<li>include 类似java import  stdlib.h stdio.h</li>
+<li>main(){}  system(“pause”);</li>
+<li>C 基本数据类型  C没有boolean byte  C long 4 char 1 长度跟java有区别</li>
+<li>signed unsigned 只能用来修饰 char short int long 整形变量</li>
+<li>printf(“输出的内容 + 占位符”, 变量) 占位符不要乱用 要选择对应的占位符</li>
+<li>C的字符串 char 数组 c 数组声明的时候 [] 要放到变量名后面</li>
+<li>char数组结束符 ‘\0’</li>
+<li>char array[] = {‘a’,’b’,’\0’};</li>
+<li>char array[] = “abcd”;</li>
+<li>char* str = “abcd”;</li>
+<li>scanf(“占位符”,内存地址); 取地址符 &amp;</li>
+<li>c 字符串不检测越界 </li>
+<li>内存地址 </li>
+<li>指针  int i = 123;  int* pointer = &i;</li>
+<li>pointer 取到的是i的地址   *pointer 取到的是i的值   &amp;pointer 取出pointer自己的地址</li>
+<li>野指针 指针赋值操作之前要先初始化 给指针变量赋一个程序中声明的变量的地址</li>
+<li>int* 指向int类型变量的地址</li>
+<li>值传递和引用传递 都是传递的值 但是引用传递传递的是地址值 子函数修改main函数的变量的值 一定要用引用传递</li>
+<li>指针和数组的关系  数组就是连续的内存空间 拿到数组的首地址 就可以对数组的每一个元素进行操作  通过指针的位移运算 位移运算 指针变量+1移动的字节数跟指针的类型有关</li>
+<li>指针的长度  32位操作系统4个字节 64位 8字节</li>
+<li>多级指针  几级指针就有几个星  int i = 123; </li>
+<li>结构体  类似class struct Student  结构体只能声明函数指针 </li>
+<li>结构体长度 大于或等于所有成员的长度 是最长的成员的长度的整数倍</li>
+<li>(* pointer).age  -&gt;</li>
+<li>联合体 </li>
+<li>枚举 </li>
+<li>typedef</li>
+</ul>
+<h2 id="AndroidStudio3-0配置NDK"><a href="#AndroidStudio3-0配置NDK" class="headerlink" title="AndroidStudio3.0配置NDK"></a>AndroidStudio3.0配置NDK</h2><ul>
+<li>环境：win10x64，之前电脑上没有配置过NDK开发环境。</li>
+<li>步骤：新建工程，然后勾上include c++ support选项。创建工程后，提示ndk没安装，就安装。cmaketext没安装，继续安装。ok了，并没有一些其他乱七八糟的什么配置。</li>
+</ul>
+<h2 id="交叉编译"><a href="#交叉编译" class="headerlink" title="交叉编译"></a>交叉编译</h2><ul>
+<li>在一个平台上去编译另一个平台上可以执行的本地代码</li>
+<li>cpu平台 arm x86 mips</li>
+<li>操作系统平台  windows linux mac os</li>
+<li>原理 模拟不同平台的特性去编译代码 </li>
+</ul>
+<h2 id="jni开发工具"><a href="#jni开发工具" class="headerlink" title="jni开发工具"></a>jni开发工具</h2><ul>
+<li>ndk native develop kit </li>
+<li>ndk目录<ul>
+<li>docs 帮助文档<ul>
+<li>platforms  好多平台版本文件夹 选择时选择项目支持的最小版本号对应的文件夹</li>
+<li>每一个版本号的文件夹中放了 不同cpu架构的资源文件</li>
+<li>include文件夹 jni开发中常用的 .h头文件</li>
+<li>lib 文件夹 google打包好的 提供给开发者使用的 .so文件</li>
+<li>samples google官方提供的样例工程 可以参考进行开发</li>
+<li>android-ndk-r9d\build\tools linux系统下的批处理文件 在交叉编译时会自动调用</li>
+<li>ndk-build 交叉编译的命令</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>cdt eclipse的插件 高亮C代码 C的代码提示</li>
+</ul>
+<h2 id="jnihelloworld"><a href="#jnihelloworld" class="headerlink" title="jnihelloworld"></a>jnihelloworld</h2><ul>
+<li><p>jni开发的步骤</p>
+<ul>
+<li>①写java代码 声明本地方法 用到native关键字 本地方法不用去实现</li>
+<li>②项目根目录下创建jni文件夹</li>
+<li>③在jni文件夹下创建.c文件<ul>
+<li>本地函数命名规则: Java_包名_类名_本地方法名</li>
+<li>JNIENV* env JNIEnv 是JniNativeInterface这个结构体的一级指针 </li>
+<li>JniNativeInterface这个结构体定义了大量的函数指针</li>
+<li>env 就是结构体JniNativeInterface这个结构体的二级指针</li>
+<li>(*env)-&gt;调用结构体中的函数指针</li>
+<li>第二个参数jobject 调用本地函数的java对象就是这个jobject</li>
+</ul>
+</li>
+<li>④ 导入&lt;jni.h&gt;</li>
+<li><p>⑤ 创建Android.mk makefile 告诉编译器.c的源文件在什么地方,要生成的编译对象的名字是什么</p>
+<p>LOCAL_PATH := $(call my-dir)</p>
+<p>include $(CLEAR_VARS)</p>
+<p>LOCAL_MODULE    := hello   #指定了生成的动态链接库的名字<br>LOCAL_SRC_FILES := hello.c #指定了C的源文件叫什么名字</p>
+<p>include $(BUILD_SHARED_LIBRARY)</p>
+</li>
+<li>⑥ 调用ndk-build编译c代码生成动态链接库.so文件 文件的位置 lib-&gt;armeabi-&gt;.so</li>
+<li>⑦ 在java代码中加载动态链接库 System.loadlibrary(“动态链接库的名字”); Android.mkLOCAL_MODULE所指定的名字<br>##jni开发中的常见错误</li>
+</ul>
+</li>
+<li>java.lang.UnsatisfiedLinkError: Native method not found: 本地方法没有找到<ul>
+<li>本地函数名写错</li>
+<li>忘记加载.so文件 没有调用System.loadlibrary </li>
+</ul>
+</li>
+<li>findLibrary returned null<ul>
+<li>System.loadLibrary(“libhello”); 加载动态链接库时 动态链接库名字写错</li>
+<li>平台类型错误 把只支持arm平台的.so文件部署到了 x86cpu的设备上 <ul>
+<li>在jni目录下创建 Application.mk 在里面指定 </li>
+<li>APP_ABI := armeabi<br>APP_PLATFORM := android-14</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>javah <ul>
+<li>jdk 1.7 项目 src目录下运行javah</li>
+<li>jdk 1.6 项目 bin目录下 classes文件夹</li>
+<li>javah native方法声明的java类的全类名 <h2 id="jni简便开发流程"><a href="#jni简便开发流程" class="headerlink" title="jni简便开发流程"></a>jni简便开发流程</h2></li>
+</ul>
+</li>
+<li>① 写java代码 native 声明本地方法</li>
+<li>② 添加本地支持 右键单击项目-&gt;andorid tools-&gt;add native surport<ul>
+<li>如果发现 finish不能点击需要给工作空间配置ndk目录的位置</li>
+<li>window-&gt;preferences-&gt;左侧选择android-&gt;ndk 把ndk解压的目录指定进来</li>
+</ul>
+</li>
+<li>③ 如果写的是.c的文件 先修改一下生成的.cpp文件的扩展名 不要忘了 相应修改Android.mk文件中LOCAL_SRC_FILES的值</li>
+<li>④ javah生成头文件 在生成的头文件中拷贝c的函数名到.c的文件</li>
+<li>⑤ 解决CDT插件报错的问题</li>
+<li>右键单击项目选择 properties 选测 c/c++ general-&gt;paths and symbols-&gt;include选项卡下-&gt;点击add..-&gt;file system 选择ndk目录下 platforms文件夹 对应平台下(项目支持的最小版本)<br>usr 目录下 arch-arm -&gt; include  确定后 会解决代码提示和报错的问题</li>
+<li>⑥编写C函数 如果需要单独编译一下c代码就在c/c++视图中找到小锤子 </li>
+<li>如果想直接运行到模拟器上 就不用锤子了</li>
+<li><p>⑦ java代码中不要忘了 system.loadlibrary();  </p>
+<h2 id="C代码中向logcat输出内容"><a href="#C代码中向logcat输出内容" class="headerlink" title="C代码中向logcat输出内容"></a>C代码中向logcat输出内容</h2><p>  Android.mk文件增加以下内容<br>  LOCAL_LDLIBS += -llog<br>  C代码中增加以下内容<br>  #include &lt;android/log.h&gt;<br>  #define LOG_TAG “System.out”<br>  #define LOGD(…) <strong>android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, </strong>VA_ARGS__)<br>  #define LOGI(…) <strong>android_log_print(ANDROID_LOG_INFO, LOG_TAG, </strong>VA_ARGS__)</p>
+</li>
+<li>define C的宏定义 起别名  #define LOG_TAG “System.out” 给”System.out”起别名LOG_TAG </li>
+<li>#define LOGI(…) <strong>android_log_print(ANDROID_LOG_INFO, LOG_TAG, </strong>VA_ARGS__)</li>
+<li>给 __android_log_print函数起别名  写死了前两个参数 第一个参数 优先级 第二个参数TAG</li>
+<li><strong>VA_ARGS</strong> 可变参数的固定写法</li>
+<li><p>LOGI(…)在调用的时候 用法跟printf()一样</p>
+<h2 id="C代码回调java方法"><a href="#C代码回调java方法" class="headerlink" title="C代码回调java方法"></a>C代码回调java方法</h2></li>
+<li><p>① 找到字节码对象 </p>
+<ul>
+<li>//jclass      (<em>FindClass)(JNIEnv</em>, const char*); </li>
+<li>//第二个参数 要回调的java方法所在的类的路径 “com/itheima/callbackjava/JNI”</li>
+</ul>
+</li>
+<li>② 通过字节码对象找到方法对象<ul>
+<li>//jmethodID   (<em>GetMethodID)(JNIEnv</em>, jclass, const char<em>, const char</em>);</li>
+<li>第二个参数 字节码对象 第三个参数 要反射调用的java方法名 第四个参数 要反射调用的java方法签名</li>
+<li>javap -s 要获取方法签名的类的全类名 项目/bin/classes 运行javap </li>
+</ul>
+</li>
+<li>③ 通过字节码创建 java对象(可选) 如果本地方法和要回调的java方法在同一个类里可以直接用 jni传过来的java对象 调用创建的Method<ul>
+<li>jobject obj =(*env)-&gt;AllocObject(env,claz);</li>
+<li>当回调的方法跟本地方法不在一个类里 需要通过刚创建的字节码对象手动创建一个java对象</li>
+<li>再通过这个对象来回调java的方法</li>
+<li>需要注意的是 如果创建的是一个activity对象 回调的方法还包含上下文 这个方法行不通!!!回报空指针异常 </li>
+</ul>
+</li>
+<li>④ 反射调用java方法<ul>
+<li>//void        (<em>CallVoidMethod)(JNIEnv</em>, jobject, jmethodID, …);</li>
+<li>第二个参数 调用java方法的对象 第三个参数 要调用的jmethodID对象 可选的参数 调用方法时接收的参数 </li>
+</ul>
+</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/30/smt交接/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1377,7 +1643,7 @@ git clone https://github.com/MatchlessHeroVIP/ssmtest.git
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
