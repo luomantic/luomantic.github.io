@@ -1,8 +1,3 @@
----
-title: JNI笔记
-tags: hexo
----
-
 ## C基本语法
 * include 类似java import  stdlib.h stdio.h
 * main(){}  system("pause");
@@ -33,9 +28,20 @@ tags: hexo
 * typedef
 
 ## AndroidStudio3.0配置NDK
-* 环境：win10x64，之前电脑上没有配置过NDK开发环境。
-* 步骤：新建工程，然后勾上include c++ support选项。创建工程后，提示ndk没安装，就安装。cmaketext没安装，继续安装。ok了，并没有一些其他乱七八糟的什么配置。
-   
+### 环境：win10x64，之前电脑上没有配置过NDK开发环境。
+* 步骤：新建工程，然后勾上include c++ support选项。创建工程后，提示ndk没安装，就安装。cmaketext没安装，继续安装。ok了，并没有一些什么七七八八的配置。
+
+### 环境：win10x64，在app工程里面建多个JNI module
+- 新建module，在project视图下的module根目录，新建CMakeLists.txt，CMakeLists配置见其他项目的CMakeList源码，简单几个英文，按照英文配置。
+
+- 在java代码中写方法，跟调用so包的静态代码块，然后到java包下执行javah命令。
+
+- 编写c文件代码。鼠标右键module，linked with c or c++ support.完成。
+
+* JNI编译时错误 编码GBK的不可映射字符 解决方法
+`javah -jni -encoding UTF-8 com.example.XXXX.XXXX.MainActivity`   
+
+
 ## 交叉编译
 * 在一个平台上去编译另一个平台上可以执行的本地代码
 * cpu平台 arm x86 mips
