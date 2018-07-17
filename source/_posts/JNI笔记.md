@@ -1,3 +1,8 @@
+---
+title: JNI基础
+date: 2018/7/17 星期二 9:24:06  
+tags: hexo
+---
 ## C基本语法
 * include 类似java import  stdlib.h stdio.h
 * main(){}  system("pause");
