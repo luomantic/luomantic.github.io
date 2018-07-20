@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="设备MAC地址记录： 红米note1s-MAC地址：98FAE3F67C9A  3L横屏带风扇-3399-MAC地址：B0F1EC3D7934  测试用smt-3399-MAC地址：B0F1EC3DFCA4  测试用smt-3399-MAC地址：B0F1EC3E2EAE（未刷固件）  3L竖屏smt-3399配置：    MAC地址：B0F1EC3DDE46     线       数：3.515">
+<meta name="description" content="关键字ViewSurfaceViewGLSurfaceViewTextureView这三个后缀都是View， 所以这三个东西都是用来显示的， 和普通的View差不多， 类似TextView等.  通过历史来说明：   SurfaceView 出现最早， 解决类似视频播放的问题（可以用单独一个线程来渲染UI）。   后来发现用起来不方便， 渲染线程需要单独编写， 一大堆都可以独立成模板。   所以">
 <meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="设备MAC地址记录">
-<meta property="og:url" content="http://yoursite.com/2018/07/17/设备Mac地址记录/index.html">
+<meta property="og:title" content="Android 5.0(Lollipop)中的SurfaceTexture，TextureView, SurfaceView和GLSurfaceView">
+<meta property="og:url" content="http://yoursite.com/2018/07/19/SurfaceView/index.html">
 <meta property="og:site_name" content="luomantic">
-<meta property="og:description" content="设备MAC地址记录： 红米note1s-MAC地址：98FAE3F67C9A  3L横屏带风扇-3399-MAC地址：B0F1EC3D7934  测试用smt-3399-MAC地址：B0F1EC3DFCA4  测试用smt-3399-MAC地址：B0F1EC3E2EAE（未刷固件）  3L竖屏smt-3399配置：    MAC地址：B0F1EC3DDE46     线       数：3.515">
+<meta property="og:description" content="关键字ViewSurfaceViewGLSurfaceViewTextureView这三个后缀都是View， 所以这三个东西都是用来显示的， 和普通的View差不多， 类似TextView等.  通过历史来说明：   SurfaceView 出现最早， 解决类似视频播放的问题（可以用单独一个线程来渲染UI）。   后来发现用起来不方便， 渲染线程需要单独编写， 一大堆都可以独立成模板。   所以">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-17T01:30:34.343Z">
+<meta property="og:updated_time" content="2018-07-19T10:36:01.637Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="设备MAC地址记录">
-<meta name="twitter:description" content="设备MAC地址记录： 红米note1s-MAC地址：98FAE3F67C9A  3L横屏带风扇-3399-MAC地址：B0F1EC3D7934  测试用smt-3399-MAC地址：B0F1EC3DFCA4  测试用smt-3399-MAC地址：B0F1EC3E2EAE（未刷固件）  3L竖屏smt-3399配置：    MAC地址：B0F1EC3DDE46     线       数：3.515">
+<meta name="twitter:title" content="Android 5.0(Lollipop)中的SurfaceTexture，TextureView, SurfaceView和GLSurfaceView">
+<meta name="twitter:description" content="关键字ViewSurfaceViewGLSurfaceViewTextureView这三个后缀都是View， 所以这三个东西都是用来显示的， 和普通的View差不多， 类似TextView等.  通过历史来说明：   SurfaceView 出现最早， 解决类似视频播放的问题（可以用单独一个线程来渲染UI）。   后来发现用起来不方便， 渲染线程需要单独编写， 一大堆都可以独立成模板。   所以">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/17/设备Mac地址记录/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/19/SurfaceView/"/>
 
 
 
 
 
-  <title>设备MAC地址记录 | luomantic</title>
+  <title>Android 5.0(Lollipop)中的SurfaceTexture，TextureView, SurfaceView和GLSurfaceView | luomantic</title>
   
 
 
@@ -233,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/17/设备Mac地址记录/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/SurfaceView/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="luomantic">
@@ -250,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">设备MAC地址记录</h1>
+          <h1 class="post-title" itemprop="name headline">Android 5.0(Lollipop)中的SurfaceTexture，TextureView, SurfaceView和GLSurfaceView</h1>
         
 
         <div class="post-meta">
@@ -262,8 +262,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-17T09:30:34+08:00">
-                2018-07-17
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-19T18:36:01+08:00">
+                2018-07-19
               </time>
             
 
@@ -300,25 +300,18 @@
       
 
       
-        <h3 id="设备MAC地址记录："><a href="#设备MAC地址记录：" class="headerlink" title="设备MAC地址记录："></a>设备MAC地址记录：</h3><ul>
-<li><p>红米note1s-MAC地址：98FAE3F67C9A</p>
-</li>
-<li><p>3L横屏带风扇-3399-MAC地址：B0F1EC3D7934</p>
-</li>
-<li><p>测试用smt-3399-MAC地址：B0F1EC3DFCA4</p>
-</li>
-<li><p>测试用smt-3399-MAC地址：B0F1EC3E2EAE（未刷固件）</p>
-</li>
-<li><p>3L竖屏smt-3399配置：  </p>
+        <ul>
+<li>关键字<br>View<br>SurfaceView<br>GLSurfaceView<br>TextureView<br>这三个后缀都是View， 所以这三个东西都是用来显示的， 和普通的View差不多， 类似TextView等.</li>
+</ul>
+<p>通过历史来说明：  </p>
+<p>SurfaceView 出现最早， 解决类似视频播放的问题（可以用单独一个线程来渲染UI）。  </p>
+<p>后来发现用起来不方便， 渲染线程需要单独编写， 一大堆都可以独立成模板。  </p>
+<p>所以后来就出现了 GLSurfaceView, 概括一句话就是 使用了模板的 SurfaceView。<br>再后来发现GLSurfaceView不能根据屏幕的变化而变化， 这是由于GLSurfaceView同应用的Surface不是在同一层导致的问题。  </p>
+<p>人们就想到把这个GLSurfaceView弄到应用的Surface中， 所以就产生了TextureView.</p>
 <ul>
-<li>MAC地址：B0F1EC3DDE46    </li>
-<li>线       数：3.515795  </li>
-<li>倾       角：-0.3291  </li>
-<li>颜       色: RGB  </li>
+<li>关键字<br>Texture<br>SurfaceTexture<br>这个东西不是用来显示给用户看的， 它是一个Texture, 意识是纹理， 可以想象成一个View的中间件。<br>举个例子：<br>1 : Camera 把视频采集的内容交给 SurfaceView, 就变成了照相机。<br>2：Camera 把视频采集的内容交给 SurfaceTexture， SurfaceTexture 在对内容做个美颜， 然后SurfaceTexture 再把内容交给 SurfaceView， 就变成了美图秀秀。</li>
 </ul>
-</li>
-</ul>
-<hr>
+<p><a href="https://blog.csdn.net/jinzhuojun/article/details/44062175" target="_blank" rel="noopener">https://blog.csdn.net/jinzhuojun/article/details/44062175</a></p>
 
       
     </div>
@@ -349,8 +342,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/17/smt交接/" rel="next" title="SMDT交接，待解决问题：">
-                <i class="fa fa-chevron-left"></i> SMDT交接，待解决问题：
+              <a href="/2018/06/20/Hexo配置到Github/" rel="next" title="Hexo配置到Github">
+                <i class="fa fa-chevron-left"></i> Hexo配置到Github
               </a>
             
           </div>
@@ -359,8 +352,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/17/git的基本操作/" rel="prev" title="Git的基本操作">
-                Git的基本操作 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/19/PyCharm永久激活/" rel="prev" title="PyCharm的激活">
+                PyCharm的激活 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -413,17 +406,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -474,22 +458,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设备MAC地址记录："><span class="nav-number">1.</span> <span class="nav-text">设备MAC地址记录：</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       

@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="hexo," />
 
 
 
@@ -80,15 +80,16 @@
 
 
 <meta name="description" content="Ⅰ。Android中的数据库处理什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。 mysql sqlserver2000  sqlite 嵌入式 轻量级  SqliteOpenHelper  创建数据库步骤： 1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两个方法oncreate ,onupgrade     构造方法中的参数介绍：">
+<meta name="keywords" content="hexo">
 <meta property="og:type" content="article">
-<meta property="og:title" content="luomantic">
-<meta property="og:url" content="http://yoursite.com/2018/07/19/android中的数据库操作/index.html">
+<meta property="og:title" content="Android中对数据库的操作">
+<meta property="og:url" content="http://yoursite.com/2018/07/19/Android中的数据库操作/index.html">
 <meta property="og:site_name" content="luomantic">
 <meta property="og:description" content="Ⅰ。Android中的数据库处理什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。 mysql sqlserver2000  sqlite 嵌入式 轻量级  SqliteOpenHelper  创建数据库步骤： 1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两个方法oncreate ,onupgrade     构造方法中的参数介绍：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-19T08:06:55.821Z">
+<meta property="og:updated_time" content="2018-07-20T02:15:08.578Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="luomantic">
+<meta name="twitter:title" content="Android中对数据库的操作">
 <meta name="twitter:description" content="Ⅰ。Android中的数据库处理什么情况下我们才用数据库做数据存储？ 大量数据结构相同的数据需要存储时。 mysql sqlserver2000  sqlite 嵌入式 轻量级  SqliteOpenHelper  创建数据库步骤： 1.创建一个类集成SqliteOpenHelper，需要添加一个构造方法，实现两个方法oncreate ,onupgrade     构造方法中的参数介绍：">
 
 
@@ -119,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/07/19/android中的数据库操作/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/07/19/Android中的数据库操作/"/>
 
 
 
 
 
-  <title> | luomantic</title>
+  <title>Android中对数据库的操作 | luomantic</title>
   
 
 
@@ -232,7 +233,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/android中的数据库操作/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/19/Android中的数据库操作/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="luomantic">
@@ -249,7 +250,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Android中对数据库的操作</h1>
         
 
         <div class="post-meta">
@@ -261,7 +262,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-19T18:30:43+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-19T18:36:01+08:00">
                 2018-07-19
               </time>
             
@@ -520,7 +521,100 @@ public void transtation(View v){
         db.endTransaction();//判断事务的标记是否成功，如果不成功，回滚错误之前执行的sql语句 
     }
 }
-</code></pre><h3 id="Ⅴ。利用GreenDao进行数据库操作。"><a href="#Ⅴ。利用GreenDao进行数据库操作。" class="headerlink" title="Ⅴ。利用GreenDao进行数据库操作。"></a>Ⅴ。利用GreenDao进行数据库操作。</h3><pre><code>1. GreenDao的引入：
+</code></pre><h3 id="Ⅴ。利用GreenDao进行数据库操作。"><a href="#Ⅴ。利用GreenDao进行数据库操作。" class="headerlink" title="Ⅴ。利用GreenDao进行数据库操作。"></a>Ⅴ。利用GreenDao进行数据库操作。</h3><pre><code>GreenDao进行数据库操作，其实质也是对sqlite进行操作。
+1. 配置环境
+------------------- ①添加依赖 -----------------------
+    // In your root build.gradle file:
+    buildscript {
+        repositories {
+            jcenter()
+            mavenCentral() // add repository
+        }
+        dependencies {
+            classpath &apos;com.android.tools.build:gradle:2.3.0&apos;
+            classpath &apos;org.greenrobot:greendao-gradle-plugin:3.2.2&apos; // add plugin
+        }
+    }
+-------1-------
+    // In your app projects build.gradle file:
+    apply plugin: &apos;com.android.application&apos;
+    apply plugin: &apos;org.greenrobot.greendao&apos; // apply plugin
+    -------2-------
+    dependencies {
+        compile &apos;org.greenrobot:greendao:3.2.2&apos; // add library
+    }
+-------3-------
+------------------- ②解锁技能 ----------------------
+// In the build.gradle file of your app project:
+    android {
+    ...
+    }
+
+    greendao {
+        schemaVersion 1
+        daoPackage &apos;com.ping.greendao.gen&apos;
+        targetGenDir &apos;src/main/java&apos;
+    }
+
+====================================================
+
+2. 在代码中使用：
+------------------- ①初始化数据 ---------------------
+   private static DaoSession daoSession;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //配置数据库
+        setupDatabase();
+    }
+
+    /**
+     * 配置数据库
+     */
+    private void setupDatabase() {
+        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, &quot;shop.db&quot;, null);
+        SQLiteDatabase db = helper.getWritableDatabase();
+        DaoMaster daoMaster = new DaoMaster(db);
+        daoSession = daoMaster.newSession();
+    }
+
+    public static DaoSession getDaoInstant() {
+        return daoSession;
+    }
+
+------------- ②对操作数据的方法进行封装  --------------
+public class LoveDao {
+
+    /**
+     * 添加数据
+     */
+    public static void insertLove(Shop shop) {
+        BaseApplication.getDaoInstant().getShopDao().insert(shop);
+    }
+
+    /**
+     * 删除数据
+     */
+    public static void deleteLove(long id) {
+        BaseApplication.getDaoInstant().getShopDao().deleteByKey(id);
+    }
+
+    /**
+     * 更新数据
+     */
+    public static void updateLove(Shop shop) {
+        BaseApplication.getDaoInstant().getShopDao().update(shop);
+    }
+
+    /**
+     * 查询条件为Type=TYPE_LOVE的数据
+     */
+    public static List&lt;Shop&gt; queryLove() {
+        return BaseApplication.getDaoInstant().getShopDao().queryBuilder().where(ShopDao.Properties.Type.eq(Shop.TYPE_LOVE)).list();
+    }
+}
+------------------------------------------
 </code></pre><h3 id="Ⅵ。利用其他数据库，代替sqlite数据库。-lt-略-gt"><a href="#Ⅵ。利用其他数据库，代替sqlite数据库。-lt-略-gt" class="headerlink" title="Ⅵ。利用其他数据库，代替sqlite数据库。&lt;略&gt;"></a>Ⅵ。利用其他数据库，代替sqlite数据库。&lt;略&gt;</h3>
       
     </div>
@@ -536,6 +630,12 @@ public void transtation(View v){
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/hexo/" rel="tag"># hexo</a>
+          
+        </div>
+      
 
       
       
@@ -545,7 +645,7 @@ public void transtation(View v){
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/17/JNI笔记/" rel="next" title="JNI基础">
+              <a href="/2018/07/19/JNI笔记/" rel="next" title="JNI基础">
                 <i class="fa fa-chevron-left"></i> JNI基础
               </a>
             
@@ -555,8 +655,8 @@ public void transtation(View v){
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/07/19/adb-shell/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/07/19/设备Mac地址记录/" rel="prev" title="设备MAC地址记录">
+                设备MAC地址记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
