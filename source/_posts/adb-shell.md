@@ -1,9 +1,18 @@
+---
+title: 简单的一些adb shell命令
+date: 2018/7/20 星期五 10:13:21 
+tags: hexo
+---
 1，Android 不Root查看App /data/data/目录文件
 	
+	① 通过shell命令：
 	条件： 首先必须是Android Debug签名的应用才可以
 	adb shell
 	run-as 应用包名
 	cd /data/data/应用包名
+	
+	② 直接通过as打开：
+	View ——> Tool Windows ——> Device File Explorer
 	
 2，adb通过wifi连接android设备
 

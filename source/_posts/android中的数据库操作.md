@@ -1,3 +1,8 @@
+---
+title: Android中对数据库的操作
+date: 2018/7/20 星期五 10:15:07 
+tags: hexo
+---
 
 ### Ⅰ。Android中的数据库处理
 	
@@ -237,7 +242,101 @@
 
 ### Ⅴ。利用GreenDao进行数据库操作。
 	
-	1. GreenDao的引入：
+	GreenDao进行数据库操作，其实质也是对sqlite进行操作。
+	1. 配置环境
+	------------------- ①添加依赖 -----------------------
+		// In your root build.gradle file:
+		buildscript {
+		    repositories {
+		        jcenter()
+		        mavenCentral() // add repository
+		    }
+		    dependencies {
+		        classpath 'com.android.tools.build:gradle:2.3.0'
+		        classpath 'org.greenrobot:greendao-gradle-plugin:3.2.2' // add plugin
+		    }
+		}
+	-------1-------
+		// In your app projects build.gradle file:
+		apply plugin: 'com.android.application'
+		apply plugin: 'org.greenrobot.greendao' // apply plugin
+		-------2-------
+		dependencies {
+		    compile 'org.greenrobot:greendao:3.2.2' // add library
+		}
+	-------3-------
+	------------------- ②解锁技能 ----------------------
+	// In the build.gradle file of your app project:
+		android {
+		...
+		}
+		
+		greendao {
+		    schemaVersion 1
+		    daoPackage 'com.ping.greendao.gen'
+		    targetGenDir 'src/main/java'
+		}
+	
+	====================================================
+	
+	2. 在代码中使用：
+	------------------- ①初始化数据 ---------------------
+	   private static DaoSession daoSession;
+
+	    @Override
+	    public void onCreate() {
+	        super.onCreate();
+	        //配置数据库
+	        setupDatabase();
+	    }
+	
+	    /**
+	     * 配置数据库
+	     */
+	    private void setupDatabase() {
+	        DaoMaster.DevOpenHelper helper = new DaoMaster.DevOpenHelper(this, "shop.db", null);
+	        SQLiteDatabase db = helper.getWritableDatabase();
+	        DaoMaster daoMaster = new DaoMaster(db);
+	        daoSession = daoMaster.newSession();
+	    }
+	
+	    public static DaoSession getDaoInstant() {
+	        return daoSession;
+	    }
+	    
+	------------- ②对操作数据的方法进行封装  --------------
+	public class LoveDao {
+
+	    /**
+	     * 添加数据
+	     */
+	    public static void insertLove(Shop shop) {
+	        BaseApplication.getDaoInstant().getShopDao().insert(shop);
+	    }
+	
+	    /**
+	     * 删除数据
+	     */
+	    public static void deleteLove(long id) {
+	        BaseApplication.getDaoInstant().getShopDao().deleteByKey(id);
+	    }
+	
+	    /**
+	     * 更新数据
+	     */
+	    public static void updateLove(Shop shop) {
+	        BaseApplication.getDaoInstant().getShopDao().update(shop);
+	    }
+	
+	    /**
+	     * 查询条件为Type=TYPE_LOVE的数据
+	     */
+	    public static List<Shop> queryLove() {
+	        return BaseApplication.getDaoInstant().getShopDao().queryBuilder().where(ShopDao.Properties.Type.eq(Shop.TYPE_LOVE)).list();
+	    }
+	}
+	------------------------------------------
+	
 
 ### Ⅵ。利用其他数据库，代替sqlite数据库。<略>
 
