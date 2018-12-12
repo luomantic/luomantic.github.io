@@ -39,3 +39,18 @@ tags: hexo
 	其他：
 	通过adb命令查看设备IP地址：adb shell  netcfg
 	前提：（设备已经和PC建立了usb连接）
+
+3，	启动/关闭app：
+
+	远程启动app：  
+	adb shell am start -n com.mou.player/.act.MainAct
+
+	远程退出app:
+	adb shell pm clear com.mou.player
+
+	as中log保存到本地：
+	adb logcat -> F:/log.txt
+
+4，模拟开机广播：  
+	
+	adb shell am broadcast -a android.intent.action.BOOT_COMPLETED
