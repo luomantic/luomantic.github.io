@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="luomantic">
 <meta property="og:description" content="1，Android 不Root查看App /data/data/目录文件 ① 通过shell命令： 条件： 首先必须是Android Debug签名的应用才可以 adb shell run-as 应用包名 cd /data/data/应用包名  ② 直接通过as打开： View ——&amp;gt; Tool Windows ——&amp;gt; Device File Explorer 2，adb通过wifi连">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-20T02:18:26.580Z">
+<meta property="og:updated_time" content="2018-12-12T07:30:34.436Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="简单的一些adb shell命令">
 <meta name="twitter:description" content="1，Android 不Root查看App /data/data/目录文件 ① 通过shell命令： 条件： 首先必须是Android Debug签名的应用才可以 adb shell run-as 应用包名 cd /data/data/应用包名  ② 直接通过as打开： View ——&amp;gt; Tool Windows ——&amp;gt; Device File Explorer 2，adb通过wifi连">
@@ -333,6 +333,17 @@ HM NOTE 1S：192.168.1.101
 其他：
 通过adb命令查看设备IP地址：adb shell  netcfg
 前提：（设备已经和PC建立了usb连接）
+</code></pre><p>3，    启动/关闭app：</p>
+<pre><code>远程启动app：  
+adb shell am start -n com.mou.player/.act.MainAct
+
+远程退出app:
+adb shell pm clear com.mou.player
+
+as中log保存到本地：
+adb logcat -&gt; F:/log.txt
+</code></pre><p>4，模拟开机广播：  </p>
+<pre><code>adb shell am broadcast -a android.intent.action.BOOT_COMPLETED
 </code></pre>
       
     </div>
